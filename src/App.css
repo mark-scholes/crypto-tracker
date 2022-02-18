@@ -1,3 +1,13 @@
 .App {
   text-align: center;
 }
+
+.coin {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.coin-img {
+  width: 50px;
+}
