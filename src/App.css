@@ -11,3 +11,11 @@
 .coin-img {
   width: 50px;
 }
+
+.coin-percentRed {
+  color: red;
+}
+
+.coin-percentGreen {
+  color: green;
+}
