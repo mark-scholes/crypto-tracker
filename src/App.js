@@ -1,3 +1,4 @@
+import { TableCell, Table, TableBody, TableContainer, TableHead, TableRow, Paper  } from '@mui/material';
 import './App.css';
 import {useState, useEffect} from 'react'
 import axios from 'axios';
@@ -32,9 +33,22 @@ function App() {
     <form>
       <input type="text" name="" id="" className="coin-search" placeholder='Search' value={search} onChange={handleChange} />
     </form>
-    <div className="coins cointainer" style={{display: "flex", flexDirection: "column" }}>
-    
+
+    <TableContainer component={Paper}>
+      <Table sx={{ minWidth: 650 }} aria-label="caption table">
+        <caption>crypto currency price data</caption>
+        <TableHead>
+        <TableRow>
+          <TableCell>Logo</TableCell>
+          <TableCell>Name</TableCell>
+          <TableCell>Symbol</TableCell>
+          <TableCell>Price</TableCell>
+          <TableCell>Volume</TableCell>
+          <TableCell>Price Change (£)</TableCell>
+          <TableCell>Price Change (%)</TableCell>
+        </TableRow>
     { filerCoins.map((coin)=> (
+      <TableRow>
       <Coin 
         img={coin.image}
         name={coin.name}
@@ -45,8 +59,11 @@ function App() {
         price_change_24h={coin.price_change_24h.toLocaleString('en-uk', {style: "currency", currency: "GBP"})}
         price_change_percentage_24h={coin.price_change_percentage_24h}
         />
-    ))}
-    </div>
+        </TableRow>
+    ))}    
+      </TableHead>
+      </Table>
+    </TableContainer>
     
     
     </div>

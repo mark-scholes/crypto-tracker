@@ -1,27 +1,19 @@
 import React from 'react'
+import TableCell from '@mui/material/TableCell'
 
 
 const Coin = ({img , name, symbol, current_price, volume, price_change_24h, price_change_percentage_24h}) => {
   return (
-    <div className="coin-container">
-        <div className="coin-row" >
-            <div className="coin">
-                <img src={img} alt={name + " logo"} className="coin-img" />
-                <p>{name}</p>
-                <p className="coin-symbol">{symbol}</p>
-                <p className="coin-currentPrice">{current_price}</p>
-                <p className="coin-volume">{volume}</p>
-                <p className="coin-priceChange">{price_change_24h}</p>
-                {
-                  price_change_percentage_24h < 0 ? (
-                    <p className="coin-percentRed">{price_change_percentage_24h.toFixed(2)}%</p>
-                  ) : (
-                    <p className="coin-percentGreen">{price_change_percentage_24h.toFixed(2)}%</p>
-                  )
-                }
-            </div>
-        </div>
-    </div>
+    
+    <>
+            <TableCell><img src={img} alt={name + " logo"} className="coin-img" /></TableCell>
+            <TableCell><p>{name}</p></TableCell>
+            <TableCell><p className="coin-symbol">{symbol}</p></TableCell>
+            <TableCell><p className="coin-currentPrice">{current_price}</p></TableCell>
+            <TableCell><p className="coin-volume">{volume}</p></TableCell>
+            <TableCell><p className="coin-priceChange">{price_change_24h}</p></TableCell>
+            <TableCell><p className={price_change_percentage_24h < 0 ? "coin-percentRed": "coin-percentGreen"}>{price_change_percentage_24h.toFixed(2)}%</p></TableCell>
+    </>
   )
 }
 
